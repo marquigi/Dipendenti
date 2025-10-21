@@ -15,9 +15,9 @@ export class App {
   constructor() {
 
     // OBSETVABLE:
-    // NOTA
+    // Un Observable è un oggetto che emette valori nel tempo (come un flusso di dati) a cui possiamo "iscriverci" per reagire a ogni nuovo valore.
 
-    // NOTA
+    // Qui creiamo manualmente un Observable che emette tre valori (1, 2 e 3) e poi si completa dopo 2 secondi.
     const obs = new Observable(sub => {
       sub.next(1)
       sub.next(2)
@@ -28,7 +28,7 @@ export class App {
       }, 2000);
     })
 
-    // NOTA
+    // Ci iscriviamo (subscribe) all'Observable per ricevere i valori emessi e gestire eventuali errori o la fine del flusso.
     obs.subscribe({
       // Si attiva ogni volta che l'obsevable invoca next()
       next: (x) => {
