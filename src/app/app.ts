@@ -14,6 +14,7 @@ export class App {
 
   constructor() {
 
+    /*
     // OBSETVABLE:
     // Un Observable è un oggetto che emette valori nel tempo (come un flusso di dati) a cui possiamo "iscriverci" per reagire a ogni nuovo valore.
 
@@ -43,5 +44,11 @@ export class App {
         console.log("Ho finito di osservare")
       }
     })
+      */
+  }
+
+
+  ngOninit() {
+
   }
 }
