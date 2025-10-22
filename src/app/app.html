@@ -1,5 +1,45 @@
 <div class="container my-5">
   <h1>Dipendenti</h1>
   <hr>
-  ...
+  @if (!lista) {
+  <div class="py-5">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+  }@else{
+  <div class="row">
+    @for (d of lista.data; track $index) {
+    <div class="col-3">
+      <div class="card">
+        <img [src]="d.avatar" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ d.first_name }} {{ d.last_name }}</h5>
+          <p class="card-text">{{ d.email }}</p>
+          <a href="#" class="btn btn-primary">Scheda</a>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  <ul class="pagination mt-4">
+    <li class="page-item"><a class="page-link" href="#">Indietro</a></li>
+
+    <!-- ---- LOOP PAGINE ---- -->
+    <!-- Ciclo su tutti i numeri di pagina presenti nell'array 'pages' -->
+    <!-- track i serve ad Angular per tracciare meglio ogni elemento durante il rendering -->
+    @for (i of pages; track i) {
+    <!-- ---- ELEMENTO PAGINA ---- -->
+    <!-- Ogni numero di pagina diventa un pulsante -->
+    <!-- [class.active]="i === currentPage" evidenzia la pagina attuale -->
+    <!-- (click)="changePage(i)" richiama il metodo che carica i dati della pagina cliccata -->
+    <li class="page-item" [class.active]="i === currentPage"><a class="page-link" href="#" (click)="changePage(i)">{{ i
+        }}</a></li>
+    }
+
+    <li class="page-item"><a class="page-link" href="#">Successivo</a></li>
+  </ul>
+  }
 </div>

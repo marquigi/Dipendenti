@@ -9,6 +9,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+
     // Abilita l'uso di HttpClient in tutta l'app e specifica che deve usare "fetch" (l'API moderna del browser)
     // per effettuare le richieste HTTP invece del vecchio sistema basato su XMLHttpRequest.
     provideHttpClient(withFetch())
