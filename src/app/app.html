@@ -25,7 +25,14 @@
     }
   </div>
   <ul class="pagination mt-4">
-    <li class="page-item"><a class="page-link" href="#">Indietro</a></li>
+    <li class="page-item" [class]="{ 'disabled' : currentPage === 1}">
+      <!-- Questa parte serve per il pulsante "Indietro" della paginazione -->
+      <!-- [class]="{ 'disabled' : currentPage === 1}" controlla se sei sulla prima pagina -->
+      <!-- Se currentPage è 1, aggiunge la classe "disabled" e quindi il pulsante non è cliccabile -->
+      <!-- (click)="changePage(currentPage -1)" richiama la funzione TypeScript che passa alla pagina precedente -->
+      <a class="page-link" href="#" (click)="changePage(currentPage -1)">Indietro</a>
+    </li>
+
 
     <!-- ---- LOOP PAGINE ---- -->
     <!-- Ciclo su tutti i numeri di pagina presenti nell'array 'pages' -->
@@ -39,7 +46,13 @@
         }}</a></li>
     }
 
-    <li class="page-item"><a class="page-link" href="#">Successivo</a></li>
+    <li class="page-item" [class]="{ 'disabled' : currentPage === pages.length }">
+      <!-- Questa parte serve per il pulsante "Successivo" della paginazione -->
+      <!-- [class]="{ 'disabled' : currentPage === pages.length }" disattiva il bottone se sei sull’ultima pagina -->
+      <!-- (click)="changePage(currentPage +1)" richiama la funzione TypeScript che passa alla pagina successiva -->
+      <a class="page-link" href="#" (click)="changePage(currentPage +1)">Successivo</a>
+    </li>
+
   </ul>
   }
 </div>

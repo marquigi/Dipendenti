@@ -63,6 +63,8 @@ export class App {
 
 
   private fetchUsers() {
+    this.lista = undefined;
+    // Imposto lista a undefined per mostrare il caricamento, poi effettuo la chiamata HTTP per ottenere i dipendenti della pagina corrente
 
     // Chiamata HTTP per ottenere i dipendenti della pagina corrente
     this.dipService.getAll(this.currentPage).subscribe({
